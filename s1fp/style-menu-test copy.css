@@ -1,0 +1,42 @@
+
+body {
+    margin: 0;
+}
+
+.header {
+    width: 100vw;
+    height: 7.5vh;
+    background: #1abc9c;
+}
+
+.gridbody {
+    margin-left: 10vw;
+    width: 80vw;
+    height: 80vh;
+    /* place-items: center; */
+}
+
+.row1 {
+size: 50vh;
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: 10vh;
+grid-column-gap: 1vh;
+grid-row-gap: 1vh;
+}
+
+.row1 div {
+    border: 0.2vw solid #000000;
+    border-radius: 0.5vw;
+}
+.body div:hover {
+  background-color: lightblue; 
+  transform: scale(1.05);      
+  transition: all 0.3s ease;
+}
+
+.footer {
+    width: 100vw;
+    height: 7.5vh;
+    background: #000000
+}
