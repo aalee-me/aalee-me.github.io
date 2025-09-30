@@ -1,6 +1,61 @@
-@font-face {
-    font-family: 'David';
-    src: url('851letrogo_007.ttf') format('truetype');
-    font-weight: normal;
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap");
+
+body {
+    margin: 0;
+    background-color: #1abc9c
+}
+
+.header {
+    width: 100vw;
+    height: 15vh;
+    text-align: center;
+}
+
+h1 {
+  font-family: "Dela Gothic One", sans-serif;
+  margin-top: 5vh;
+  font-size: 15vh;
+  font-weight: 400;
+  line-height: 0.8;
+  vertical-align: center;
+  color: 45344F;
+  text-shadow:    
+  -5px -5px 0 #FFDCA9,
+    5px -5px 0 #FFDCA9,
+    -5px 5px 0 #FFDCA9,
+    5px 5px 0 #FFDCA9
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=music_note');
+
+h2 {
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 900;
     font-style: normal;
+    font-size: 2rem;
+    vertical-align: middle;
+    color: 45344F;
+    text-shadow:
+    -2px -2px 0 #FFDCA9,
+    2px -2px 0 #FFDCA9,
+    -2px 2px 0 #FFDCA9,
+    2px 2px 0 #FFDCA9
+}
+
+.icon {
+  font-family: 'Material Symbols Outlined';
+  font-size: 2rem;
+  color: 45344F
+}
+
+.huge {
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 20vh;
+    font-weight: 2000;
+    vertical-align: center;
+}
+
+a {
+  text-decoration: none;
 }

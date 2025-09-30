@@ -1,50 +1,77 @@
-body {
-    margin: 0;
-    
-}
-
-.header {
-    width: 100vw;
-    height: 10vh;
-    background: #1abc9c;
-    text-align: center;
-    font-family: 'David';
+body.song-select { 
+    background-color: #45344F; 
 }
 
 .gridbody {
     display: grid;
-    margin-left: 5vw;
-    margin-top: calc(5vh + 10px);
+    margin-left: calc(5vw - 10px);
+    margin-top: calc(12.5vh + 10px);
     width: 90vw;
-    grid-template-columns: 80% 20%;
-    height: calc(55vh + 20px);
-    place-items: center;
-}
-
-.scrollbar {
-    border: 0.2px solid #1abc9c; 
-    border-color: #1abc9c;
+    grid-template-columns: 90% 10%;
+    gap: 10px;
+    height: calc(1fr + 10px);
 }
 
 .col1 {
     display: grid;
-    grid-template-rows: repeat(5, 10vh);
+    width: 100%;
+    grid-template-rows: repeat(5, 7.5vh);
     grid-column-gap: 10px;
     grid-row-gap: 10px;
 }
 
-.div {
-    border-radius: 1px;
-    border-color: #000000;
-    }
-
-.itemselect {
-    border: 0.2px solid #1abc9c;
-    border-radius: 5px;
+.scrollbar {
+    height: calc(37.5vh + 40px);
+    display: grid;
+    grid-template-rows: 1fr 5fr 1fr;
+    grid-row-gap: 10px;
+    font-style: normal;
+    font-size: 1rem;
+    color: 45344F;
+    -webkit-text-stroke: 2px #FFDCA9;
+    text-align: center;
 }
 
-.footer {
-    width: 100vw;
-    height: calc(10vh);
-    background: #000000
+.arrow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5vh;
+    height: 6vh;
+    border-radius: 5px;
+    border: 5px solid #FFDCA9
+}
+
+.bar {
+    width: 5vh;
+    height: 95%;
+    border-radius: 5px;
+    border: 5px solid #FFDCA9
+}
+
+.itemselect {
+    border: 5px solid #FFDCA9;
+    background-color:#45344F;
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 1rem;
+    color: 45344F;
+    text-shadow:
+    -2px -2px 0 #FFDCA9,
+    2px -2px 0 #FFDCA9,
+    -2px 2px 0 #FFDCA9,
+    2px 2px 0 #FFDCA9
+}
+
+.itemselect:hover {
+  background-color: FFDCA9; 
+  transform: scale(1.02);      
+  transition: all 0.3s ease;
 }
