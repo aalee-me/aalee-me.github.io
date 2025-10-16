@@ -1,0 +1,82 @@
+div {
+  
+}
+
+input {
+  display: none;
+}
+
+#duck1:checked ~ #duck1label {
+  opacity: .5;
+    animation: duckmove 5s linear infinite paused 0s, flappy 500ms steps(6) infinite paused, death 2s forwards;
+
+}
+
+#duck2:checked ~ #duck2label {
+  opacity: .5;
+  animation: duckmove 5s linear infinite paused 2s, flappy 500ms steps(6) infinite paused, death 2s forwards;
+
+}
+
+/* #duck */
+
+#duck1label {
+  position: fixed;
+  background-image: url("animation.png");
+  width: 400px;
+  height: 300px;
+  background-color: blue;
+animation: duckmove 5s linear infinite, flappy 2s steps(6) infinite;
+  /* animation: duckmove 5s, flappy 500ms steps(6);
+    animation-iteration-count: infinite; */
+
+  /* animation-timing-function: linear; */
+}
+
+#duck2label {
+  position: fixed;
+  top: 5vh;
+  left: -400px;
+  background-image: url("animation.png");
+  width: 400px;
+  height: 300px;
+  background-color: blue;
+  animation: duckmove 5s linear infinite 2s, flappy 2s steps(6) infinite;
+}
+
+@keyframes death {
+    0%{
+    transform: translateY(0);
+    }
+    20% {
+    transform: translateY(-2vh)
+    }
+    100% {
+    transform: translateY(100vh)
+    }
+}
+
+@keyframes duckmove {
+  0% {
+    left: -400px;
+  }
+  100% {
+    left: 100vw;
+  }
+}
+
+@keyframes flappy {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: -600% 0%;
+    }
+}
+
+/* #duck1label:hover {
+
+    animation: duck1move 5s, flappy 1s;
+} */
+
+
