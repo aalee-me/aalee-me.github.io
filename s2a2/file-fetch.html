@@ -4,7 +4,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
 </head>
 
 <div class="hero"></div>
@@ -21,5 +21,49 @@
 <div class="foreground">
     <img src="paperstacks.png" alt = "a pile of papers sprawled out on the floor.">
 </div>
-<div class="cabinet"></div>
+<div class="cabinet" alt="this cabinet opens when you hover on it!"></div>
+<div id="crosshairs">hi</div>
+<!-- <script>
+    function setup() {
+        noCanvas();
+    }
+    function draw() {
+        let crosshairs = select('#crosshairs');
+        crosshairs.style('position', 'fixed');
+        crosshairs.style('left', mouseX - 10);
+        crosshairs.style('top', mouseY - 10);
+    }
+</script> -->
+<!-- CONVERT TO p5JS -->
+<script> 
+        document.addEventListener('DOMContentLoaded', (event) => {
+        const myCheckbox = document.getElementById('duck1');
+        const myCheckbox2 = document.getElementById('duck2');
+        const myCheckbox3 = document.getElementById('duck3');
+        const uncheckDelay = 3000;
+
+        myCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                setTimeout(() => {
+                    this.checked = false;
+                }, uncheckDelay);
+            }
+        });
+        myCheckbox2.addEventListener('change', function() {
+            if (this.checked) {
+                setTimeout(() => {
+                    this.checked = false;
+                }, uncheckDelay);
+            }
+        });
+        myCheckbox3.addEventListener('change', function() {
+            if (this.checked) {
+                setTimeout(() => {
+                    this.checked = false;
+                }, uncheckDelay);
+            }
+        });
+    });
+
+</script>
 </div>
