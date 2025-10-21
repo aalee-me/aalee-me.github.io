@@ -1,32 +1,18 @@
-div {
-  
+
+selector {
+  cursor: crosshair;
 }
 
 input {
   display: none;
 }
 
-#duck1:checked ~ #duck1label {
-  opacity: .5;
-    animation: duckmove 5s linear infinite paused 0s, flappy 500ms steps(6) infinite paused, death 2s forwards;
-
-}
-
-#duck2:checked ~ #duck2label {
-  opacity: .5;
-  animation: duckmove 5s linear infinite paused 2s, flappy 500ms steps(6) infinite paused, death 2s forwards;
-
-}
-
-/* #duck */
-
 #duck1label {
   position: fixed;
   background-image: url("animation.png");
-  width: 400px;
-  height: 300px;
-  background-color: blue;
-animation: duckmove 5s linear infinite, flappy 2s steps(6) infinite;
+  width: 200px;
+  height: 150px;
+animation: duckmove 2s linear infinite, flappy 1s steps(5) infinite;
   /* animation: duckmove 5s, flappy 500ms steps(6);
     animation-iteration-count: infinite; */
 
@@ -35,30 +21,79 @@ animation: duckmove 5s linear infinite, flappy 2s steps(6) infinite;
 
 #duck2label {
   position: fixed;
-  top: 5vh;
-  left: -400px;
+  top: 7.5vh;
+  left: -200px;
   background-image: url("animation.png");
-  width: 400px;
-  height: 300px;
-  background-color: blue;
-  animation: duckmove 5s linear infinite 2s, flappy 2s steps(6) infinite;
+  width: 200px;
+  height: 150px;
+  animation: duckmove 2s linear infinite 2s, flappy 1s steps(5) infinite;
 }
+
+#duck3label {
+  position: fixed;
+  top: 17vh;
+  left: -200px;
+  background-image: url("animation.png");
+  width: 200px;
+  height: 150px;
+  animation: duckmove 2s linear infinite 2s, flappy 1s steps(5) infinite;
+}
+
+#duck1:checked ~ #duck1label {
+  opacity: .5;
+    animation: duckmove 2s linear infinite paused 0s, flappy 200ms steps(5) infinite paused, death 1.5s forwards;
+
+}
+
+#duck2:checked ~ #duck2label {
+  opacity: .5;
+  animation: duckmove 2s linear infinite paused 2s, flappy 200ms steps(5) infinite paused, death 1.5s forwards;
+
+}
+
+#duck3:checked ~ #duck3label {
+  opacity: .5;
+  animation: duckmove 2s linear infinite paused 2s, flappy 200ms steps(5) infinite paused, death 1.5s forwards;
+
+}
+
+.cabinet {
+  background-image: url("cabinet.png");
+  width: 204;
+  height: 255px;
+  position: fixed;
+  bottom: 10vh;
+  left: 5vh;
+}
+
+.cabinet:hover {
+  animation: slide 1s steps(3) forwards; 
+}
+
+@keyframes slide {
+    from {
+        position: 0% 0%;
+    }
+    to {
+        position: -300% 0%;
+    }
+  }
 
 @keyframes death {
     0%{
     transform: translateY(0);
     }
     20% {
-    transform: translateY(-2vh)
+    transform: translateY(-2vh);
     }
     100% {
-    transform: translateY(100vh)
+    transform: translateY(100vh);
     }
 }
 
 @keyframes duckmove {
   0% {
-    left: -400px;
+    left: -200px;
   }
   100% {
     left: 100vw;
@@ -70,13 +105,36 @@ animation: duckmove 5s linear infinite, flappy 2s steps(6) infinite;
         background-position: 0% 0%;
     }
     to {
-        background-position: -600% 0%;
+        background-position: -500% 0%;
     }
 }
 
-/* #duck1label:hover {
+.foreground {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  scale: 1;
+  width: 200vw;
+  z-index: -1;
+}
 
-    animation: duck1move 5s, flappy 1s;
-} */
+
+#duck1label:hover {
+opacity: 1.1;
+animation: duckmove 2s linear infinite, flappy 5s steps(5) infinite;
+transition: 1s;
+}
+
+#duck2label:hover {
+scale: 1.1;
+animation: duckmove 2s linear infinite, flappy 5s steps(5) infinite;
+transition: 1s;
+}
 
 
+#duck3label:hover {
+scale: 1.1;
+animation: duckmove 2s linear infinite, flappy 5s steps(5) infinite;
+transition: 1s;
+}
