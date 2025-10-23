@@ -1,0 +1,170 @@
+
+
+input {
+  display: none;
+}
+
+.hero {
+  position: fixed;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);;
+  z-index: -10;
+}
+
+#duck1label {
+  position: fixed;
+  background-image: url("animation.png");
+  width: 200px;
+  height: 150px;
+animation: duckmove 2s linear infinite, flappy 1s steps(5) infinite;
+}
+
+#duck2label {
+  position: fixed;
+  top: 7.5vh;
+  left: -200px;
+  background-image: url("animation.png");
+  width: 200px;
+  height: 150px;
+  animation: duckmove 2s linear infinite 2.3s, flappy 1s steps(5) infinite;
+}
+
+#duck3label {
+  position: fixed;
+  top: 17vh;
+  left: -200px;
+  background-image: url("animation.png");
+  width: 200px;
+  height: 150px;
+  animation: duckmove 2s linear infinite 2s, flappy 1s steps(5) infinite;
+}
+
+#duck1:checked ~ #duck1label {
+  opacity: .5;
+    animation: duckmove 2s linear infinite paused 0s, flappy 200ms steps(5) infinite paused, death 1.5s forwards;
+
+}
+
+#duck2:checked ~ #duck2label {
+  opacity: .5;
+  animation: duckmove 2s linear infinite paused 2s, flappy 200ms steps(5) infinite paused, death 1.5s forwards;
+
+}
+
+#duck3:checked ~ #duck3label {
+  opacity: .5;
+  animation: duckmove 2s linear infinite paused 2s, flappy 200ms steps(5) infinite paused, death 1.5s forwards;
+
+}
+
+.drawer {
+  background-image: url("drawer.png");
+  width: 204px;
+  height: 255px;
+  position: fixed;
+  bottom: 200px;
+  left: 100px;
+  scale: 1.25
+}
+
+.drawer:hover {
+  animation: slide 1s steps(3) forwards; 
+}
+
+@keyframes slide {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: -300% 0%;
+    }
+  }
+
+@keyframes death {
+    0%{
+    transform: translateY(0) rotate(0deg);
+    }
+    20% {
+    transform: translateY(-2vh) rotate(40deg);
+    }
+    100% {
+    transform: translateY(200vh) rotate(180deg);
+    }
+}
+
+@keyframes duckmove {
+  0% {
+    left: -200px;
+  }
+  100% {
+    left: 100vw;
+  }
+}
+
+@keyframes flappy {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: -500% 0%;
+    }
+}
+
+.foreground {
+  width: 1920px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  bottom: -10vh;
+  scale: 1;
+  z-index: -1;
+}
+
+
+.foreground img {
+  position: absolute;
+  bottom:0
+}
+
+#duck1label:hover {
+opacity: 1.1;
+animation: duckmove 2s linear infinite, flappy 5s steps(5) infinite;
+transition: 1s;
+}
+
+#duck2label:hover {
+scale: 1.1;
+animation: duckmove 2s linear infinite 2.3s, flappy 5s steps(5) infinite;
+transition: 1s;
+}
+
+#duck3label:hover {
+scale: 1.1;
+animation: duckmove 2s linear infinite, flappy 5s steps(5) infinite;
+transition: 1s;
+}
+
+@media only screen and (max-width: 942px) {
+  .foreground {
+    transform: scale(.5);
+    transform-origin: bottom left;
+  }
+  .drawer {
+    transform: scale(.55);
+    transform-origin: bottom left;
+    bottom: 80px;
+    left: 5vh;
+  }
+  #duck1label, #duck2label, #duck3label {
+    scale: 0.5;
+  }
+  #duck1label:hover, #duck2label:hover, #duck3label:hover {
+    scale: 0.6;
+}
+
+}
+
+  label {
+    cursor: url('CROSSHAIR.png'), auto;
+  }

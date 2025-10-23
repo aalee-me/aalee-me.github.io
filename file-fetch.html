@@ -1,0 +1,54 @@
+<head>
+    <title> File Fetch </title>
+    <link rel="stylesheet" href="file-fetch.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
+</head>
+
+<div class="hero"><img src="filefetch.png" alt="help me trouble-shoot!"></div>
+
+<input type="checkbox" id="duck1"> 
+<input type="checkbox" id="duck2">
+<input type="checkbox" id="duck3"> 
+
+<label for="duck1" id="duck1label">
+</label>
+<label for="duck2" id="duck2label"></label>
+<label for="duck3"id="duck3label"></label>
+<label for="duck4"></label>
+<div class="foreground">
+    <img src="paperstacks.png" alt = "a pile of papers sprawled out on the floor.">
+</div>
+<div class="drawer" alt="a drawer slides open... what could be inside?"></div>
+
+<script> 
+        document.addEventListener('DOMContentLoaded', (event) => {
+        const myCheckbox = document.getElementById('duck1');
+        const myCheckbox2 = document.getElementById('duck2');
+        const myCheckbox3 = document.getElementById('duck3');
+        const uncheckDelay = 2000;
+
+        myCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                setTimeout(() => {
+                    this.checked = false;
+                }, uncheckDelay);
+            }
+        });
+        myCheckbox2.addEventListener('change', function() {
+            if (this.checked) {
+                setTimeout(() => {
+                    this.checked = false;
+                }, uncheckDelay);
+            }
+        });
+        myCheckbox3.addEventListener('change', function() {
+            if (this.checked) {
+                setTimeout(() => {
+                    this.checked = false;
+                }, uncheckDelay);
+            }
+        });
+    });
+
+</script>
+</div>
