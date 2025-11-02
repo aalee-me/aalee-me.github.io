@@ -1,4 +1,6 @@
-
+body {
+  cursor: url("CROSSHAIR.png"), auto;
+}
 
 input {
   display: none;
@@ -17,7 +19,7 @@ input {
   background-image: url("animation.png");
   width: 200px;
   height: 150px;
-animation: duckmove 2s linear infinite, flappy 1s steps(5) infinite;
+animation: duckmove 3s linear infinite, flappy 1s steps(5) infinite;
 }
 
 #duck2label {
@@ -27,7 +29,7 @@ animation: duckmove 2s linear infinite, flappy 1s steps(5) infinite;
   background-image: url("animation.png");
   width: 200px;
   height: 150px;
-  animation: duckmove 2s linear infinite 2.3s, flappy 1s steps(5) infinite;
+  animation: duckmove 3s linear infinite 2.3s, flappy 1s steps(5) infinite;
 }
 
 #duck3label {
@@ -37,24 +39,24 @@ animation: duckmove 2s linear infinite, flappy 1s steps(5) infinite;
   background-image: url("animation.png");
   width: 200px;
   height: 150px;
-  animation: duckmove 2s linear infinite 2s, flappy 1s steps(5) infinite;
+  animation: duckmove 3s linear infinite 3.1s, flappy 1s steps(5) infinite;
 }
 
 #duck1:checked ~ #duck1label {
   opacity: .5;
-    animation: duckmove 2s linear infinite paused 0s, flappy 200ms steps(5) infinite paused, death 1.5s forwards;
+    animation: duckmove 3s linear infinite paused 0s, flappy 200ms steps(5) infinite paused, death 1.5s forwards;
 
 }
 
 #duck2:checked ~ #duck2label {
   opacity: .5;
-  animation: duckmove 2s linear infinite paused 2s, flappy 200ms steps(5) infinite paused, death 1.5s forwards;
+  animation: duckmove 3s linear infinite paused 2.3s, flappy 200ms steps(5) infinite paused, death 1.5s forwards;
 
 }
 
 #duck3:checked ~ #duck3label {
   opacity: .5;
-  animation: duckmove 2s linear infinite paused 2s, flappy 200ms steps(5) infinite paused, death 1.5s forwards;
+  animation: duckmove 3s linear infinite paused 3.1s, flappy 200ms steps(5) infinite paused, death 1.5s forwards;
 
 }
 
@@ -69,7 +71,7 @@ animation: duckmove 2s linear infinite, flappy 1s steps(5) infinite;
 }
 
 .drawer:hover {
-  animation: slide 1s steps(3) forwards; 
+  animation: slide 1s steps(3) forwards;  
 }
 
 @keyframes slide {
@@ -112,8 +114,9 @@ animation: duckmove 2s linear infinite, flappy 1s steps(5) infinite;
 }
 
 .foreground {
-  width: 1920px;
-  height: 100vh;
+  background-image: url("paperstacks.png");
+  width: 100vh;
+  height: 1080px; ;
   position: fixed;
   left: 0;
   bottom: -10vh;
@@ -129,23 +132,23 @@ animation: duckmove 2s linear infinite, flappy 1s steps(5) infinite;
 
 #duck1label:hover {
 opacity: 1.1;
-animation: duckmove 2s linear infinite, flappy 5s steps(5) infinite;
+animation: duckmove 3s linear infinite, flappy 5s steps(5) infinite;
 transition: 1s;
 }
 
 #duck2label:hover {
 scale: 1.1;
-animation: duckmove 2s linear infinite 2.3s, flappy 5s steps(5) infinite;
+animation: duckmove 3s linear infinite 2.3s, flappy 5s steps(5) infinite;
 transition: 1s;
 }
 
 #duck3label:hover {
 scale: 1.1;
-animation: duckmove 2s linear infinite, flappy 5s steps(5) infinite;
+animation: duckmove 3s linear infinite 3.1s, flappy 5s steps(5) infinite;
 transition: 1s;
 }
 
-@media only screen and (max-width: 942px) {
+@media only screen and (max-width: 960px) {
   .foreground {
     transform: scale(.5);
     transform-origin: bottom left;
@@ -153,18 +156,18 @@ transition: 1s;
   .drawer {
     transform: scale(.55);
     transform-origin: bottom left;
-    bottom: 80px;
+    bottom: 70px;
     left: 5vh;
   }
   #duck1label, #duck2label, #duck3label {
-    scale: 0.5;
+    background-image: url("animation_mobile.png");
   }
   #duck1label:hover, #duck2label:hover, #duck3label:hover {
-    scale: 0.6;
+    scale: 1,1;
 }
 
 }
 
   label {
-    cursor: url('CROSSHAIR.png'), auto;
+    cursor: url('CROSSHAIR_ACTIVATED.png'), auto;
   }
