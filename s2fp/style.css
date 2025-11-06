@@ -8,7 +8,7 @@ body {
     width: 200px;
     height: 150px;
     position: fixed;
-    transform-origin: bottom center;
+    transform-origin: center;
     top: calc(50vh - 75px);
     left: calc(50vw - 100px);
     perspective: (200px);
