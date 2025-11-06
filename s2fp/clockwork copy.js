@@ -31,3 +31,6 @@ function clock(minuteval, hourval, secondval) {
     front.style('transform', `rotateX(-${minuteval}deg) rotateY(-${hourval}deg)`);
     folder.style('transform',`rotateX(-${secondval}deg)`);
 }
+
+var d = new Date();
+var n = d.toLocaleTimeString();

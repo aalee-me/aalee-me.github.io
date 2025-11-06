@@ -55,7 +55,7 @@ body {
 }
 
 #folderfront2 {
-    background-image: url('folderfront.png');
+    background-image: url('folderback1.png');
     position: fixed;
     /* transform: rotateY(180deg); */
     width: 100%;
