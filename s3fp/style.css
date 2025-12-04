@@ -1,0 +1,53 @@
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    pointer-events: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+#folder {
+    position: relative;
+    width: 400px;
+    height: 270px;
+    perspective: 1000px;
+    transition: 0.4s 
+    transform-style: preserve-3d;
+
+}
+
+.ftab {
+    width: 150px;
+    height: 30px;
+    background-color: #333333;
+    border-radius: 10px 10px 0 0;
+    margin-left: 0;
+    border-bottom: none;
+    transition: background-color 0.2s;
+}
+
+.fbody {
+    width: 100%;
+    height: 100%;
+    background-color: #333333;
+    border-radius: 0 10px 10px 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#folder:hover {
+    scale: 1.05;
+    transition: 0.4s;
+}
