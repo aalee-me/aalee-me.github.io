@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broken Broadcasts</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=BBH+Bartle&family=BBH+Bogle&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<body>
+
+    <div class="scroll-container">
+        <div class="sticky-viewport">
+            
+            <div class="tv-scene" id="tvScene">
+
+                <div class="tv-frame">
+                    <img src="TV.png" alt="Retro TV Frame">
+                </div>
+
+                <div class="tv-screen">
+                    <div class="static-overlay"></div>
+                    <div class="hero-content">
+                        <h1>Broken Broadcasts</h1>
+                        <p>The long-term success
+                            <br>of certain shows.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <main class="article-section">
+        <p>
+            <span class="drop-cap">T</span>V shows often come and go. Whether successful. Beginning <span class="show">Tom and Jerry</span> from Certain ome and go.
+        </p>
+        <p>
+            The data suggests an upward trajectory, hidden within the analog frequencies of yesterday's hardware. This report breaks down the financial implications of retro-computing in a modern hyper-connected market.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <p>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+    </main>
+
+    <div class="article-section">
+        <h2>Case Study No. 1</h1>
+            <h3>When Nautical Nonsense Makes a Splash</h3>
+        <p>
+            Hello
+
+        </p>
+
+    </div>
+
+
+    <script>
+        const scrollContainer = document.querySelector('.scroll-container');
+        const tvScene = document.getElementById('tvScene');
+    
+        const MAX_SCALE = 5; 
+        const MIN_SCALE = 1; 
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = scrollContainer.offsetHeight - window.innerHeight;
+        
+            let scrollFraction = scrollTop / docHeight;
+            if (scrollFraction > 1) scrollFraction = 1;
+            if (scrollFraction < 0) scrollFraction = 0;
+
+            const currentScale = MAX_SCALE - (scrollFraction * (MAX_SCALE - MIN_SCALE));
+
+            tvScene.style.setProperty('--scale', currentScale);
+            
+            const content = document.querySelector('.hero-content');
+            content.style.opacity = 1 - (scrollFraction * 0.5);
+        });
+    </script>
+</body>
+</html>
