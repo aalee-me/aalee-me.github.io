@@ -19,9 +19,9 @@ body {
     position: relative;
     width: 400px;
     height: 270px;
-    perspective: 1000px; /* Creates the 3D depth */
-    transform-style: preserve-3d; /* Allows it to rotate in 3D space */
-    transition: transform 0.1s; /* Makes the movement smooth but snappy */
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.1s;
 
 }
 
