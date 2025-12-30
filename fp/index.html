@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aart-chival of the Web</title>
+    <link rel="stylesheet" href="file.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="background">AOTW</div>
+    <div class="scene">
+        <div class="stack">
+            <div class="folder" onclick="toggleFolder(this)" style="--i: 0">
+                <div class="ftab">S1A1</div>
+                <div class="cover"></div>
+                <div class="content">
+                    <div class="nav-controls">
+                        <button class="nav-btn" onclick="closeProject(event, this)">&lt; BACK</button>
+                        <button class="nav-btn" onclick="nextProject(event, this)">NEXT PROJECT &gt;</button>
+                    </div>
+
+                    <h3>Unique Unicode</h3>
+                    <a href="https://codepen.io/sibhguyc-the-looper/pen/MYaRYwo" class="button" target="_blank">VIEW PROJECT</a>
+                    
+                    <img src="s1a1.png" alt="Preview">
+                    <p>Inspired by my Korean identity and background in multi-media design, I created an ASCII-style rendition of my original photography using Hangul Jamo Unicode code points.</p>
+                    <p><b>Key Words:</b> Identity, Garden, Medium, Metaphor, Monster, Network</p>
+                </div>
+            </div>
+
+            <div class="folder" onclick="toggleFolder(this)" style="--i: 1">
+                <div class="ftab">S1A2</div>
+                <div class="cover"></div>
+                <div class="content">
+                    <div class="nav-controls">
+                        <button class="nav-btn" onclick="closeProject(event, this)">&lt; BACK</button>
+                        <button class="nav-btn" onclick="nextProject(event, this)">NEXT PROJECT &gt;</button>
+                    </div>
+
+                    <h3>Not-so-Still Life</h3>
+                    <a href="https://codepen.io/sibhguyc-the-looper/pen/YPyMVrp" class="button" target="_blank">VIEW PROJECT</a>
+                    <img src="s1a2.png" alt="Preview">
+                    <p>Inspired by a still-life taken in class, I played with CSS and Spanish to abstract a literal experience into a trippy one.</p>
+                    <p><b>Key Words:</b> Archive, Digital Archaeology, Geocities, Web</p>
+                </div>
+            </div>
+
+            <div class="folder" onclick="toggleFolder(this)" style="--i: 2">
+                <div class="ftab">S1FP</div>
+                <div class="cover"></div>
+                <div class="content">
+                    <div class="nav-controls">
+                        <button class="nav-btn" onclick="closeProject(event, this)">&lt; BACK</button>
+                        <button class="nav-btn" onclick="nextProject(event, this)">NEXT PROJECT &gt;</button>
+                    </div>
+
+                    <h3>Kara-Go-ke</h3>
+                    <a href="aalee-me.github.io/s1fp/karaoke-menu" class="button" target="_blank">VIEW PROJECT</a>
+                    <img src="s1fp.png" alt="Preview">
+                    <p>Inspired by Japanese Karaoke machines, I created a site allowing users to access a 5-song, in-person experience online.</p>
+                    <p><b>Key Words:</b> Experience, Hybrid Publication, Medium-Specificity, Post-Digital</p>
+                </div>
+            </div>
+
+            <div class="folder" onclick="toggleFolder(this)" style="--i: 3">
+                <div class="ftab">S2A1</div>
+                <div class="cover"></div>
+                <div class="content">
+                    <div class="nav-controls">
+                        <button class="nav-btn" onclick="closeProject(event, this)">&lt; BACK</button>
+                        <button class="nav-btn" onclick="nextProject(event, this)">NEXT PROJECT &gt;</button>
+                    </div>
+
+                    <h3>In for a Loop</h3>
+                    <a href="https://suya-q.github.io/S1FP/DucksInARow.html" class="button" target="_blank">VIEW PROJECT</a>
+                    <img src="s2a1.png" alt="Preview">
+                    <p>Inspired by online web-rings, I took part in a class-wide project looping between my peers' publications.</p>
+                    <p><b>Key Words:</b> Framework, Patch, Update, Web Ring</p>
+                </div>
+            </div>
+
+            <div class="folder" onclick="toggleFolder(this)" style="--i: 4">
+                <div class="ftab">S2A2</div>
+                <div class="cover"></div>
+                <div class="content">
+                    <div class="nav-controls">
+                        <button class="nav-btn" onclick="closeProject(event, this)">&lt; BACK</button>
+                        <button class="nav-btn" onclick="nextProject(event, this)">NEXT PROJECT &gt;</button>
+                    </div>
+
+                    <h3>File Fetch</h3>
+                    <a href="aalee-me.github.io/file-fetch" class="button" target="_blank">VIEW PROJECT</a>
+                    <img src="s2a2.png" alt="Preview">
+                    <p>Inspired by <i>Duck Hunt</i>, I reimagined the classic shooter as a 'troubleshooting' challenge.</p>
+                    <p><b>Key Words:</b> Alt-Text, Authorship, Digital Colonialization, Interpretation, Linguistics</p>
+                </div>
+            </div>
+
+            <div class="folder" onclick="toggleFolder(this)" style="--i: 5">
+                <div class="ftab">S2A3</div>
+                <div class="cover"></div>
+                <div class="content">
+                    <div class="nav-controls">
+                        <button class="nav-btn" onclick="closeProject(event, this)">&lt; BACK</button>
+                        <button class="nav-btn" onclick="nextProject(event, this)">NEXT PROJECT &gt;</button>
+                    </div>
+
+                    <h3>Real Time Unfolding</h3>
+                    <a href="aalee-me.github.io/s2fp/clockwork" class="button" target="_blank">VIEW PROJECT</a>
+                    <img src="s2fp.png" alt="Preview">
+                    <p>Inspired by Gestalt Principles and realism in art, I sought to create a clock resembling a folder that unfolds in 3D space to reveal the time.</p>
+                    <p><b>Key Words:</b> Gestalt Principles, Perception, Hypermodernism, Semiotics, Visual Systems</p>
+                </div>
+            </div>
+
+            <div class="folder" onclick="toggleFolder(this)" style="--i: 6">
+                <div class="ftab">S3A1</div>
+                <div class="cover"></div>
+                <div class="content">
+                    <div class="nav-controls">
+                        <button class="nav-btn" onclick="closeProject(event, this)">&lt; BACK</button>
+                        <button class="nav-btn" onclick="nextProject(event, this)">NEXT PROJECT &gt;</button>
+                    </div>
+
+                    <h3>ATS Simulator</h3>
+                    <a href="https://job-application-kohl-eight.vercel.app" class="button" target="_blank">VIEW PROJECT</a>
+                    <img src="s3a1.png" alt="Preview">
+                    <p>"Inspired" by the current job market, I led the creative direction of an ATS simulator.</p>
+                    <p><b>Key Words:</b> Algorithm, Script, String Games, Simulation, The Feed</p>
+                </div>
+            </div>
+
+            <div class="folder" onclick="toggleFolder(this)" style="--i: 7">
+                <div class="ftab">S3A2</div>
+                <div class="cover"></div>
+                <div class="content">
+                    <div class="nav-controls">
+                        <button class="nav-btn" onclick="closeProject(event, this)">&lt; BACK</button>
+                        <button class="nav-btn" onclick="nextProject(event, this)">NEXT PROJECT &gt;</button>
+                    </div>
+
+                    <h3>A "Byte"-Sized Digest</h3>
+                    <a href="aalee-me.github.io/s3a2" class="button" target="_blank">VIEW PROJECT</a>
+                    <img src="s3a2.png" alt="Preview">
+                    <p>Inspired by the APIs on If This Then That (IFTTT), I co- designed and developed a website promoting an applet.</p>
+                    <p><b>Key Words:</b> API, Applet, Broadcast, Interaction, Promotion, User Experience</p>
+                </div>
+            </div>
+
+            <div class="folder" onclick="toggleFolder(this)" style="--i: 8">
+                <div class="ftab">S3FP</div>
+                <div class="cover"></div>
+                <div class="content">
+                    <div class="nav-controls">
+                        <button class="nav-btn" onclick="closeProject(event, this)">&lt; BACK</button>
+                        <button class="nav-btn" onclick="nextProject(event, this)">NEXT PROJECT &gt;</button>
+                    </div>
+
+                    <h3>Generative Glitch</h3>
+                    <a href="aalee-me.github.io/s3fp" class="button" target="_blank">VIEW PROJECT</a>
+                    <img src="s3fp.png" alt="Preview">
+                    <p>Inspired by the <i>Spiderverse</i> series, I designed generative art that glitches on hover</p>
+                    <p><b>Key Words:</b> Deinstitutionalization, Documentation, Generative Art, Malleability, Performance</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
