@@ -1,0 +1,333 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+canvas {
+    position: fixed;
+    top: 0; left: 0;
+    z-index: -20;
+    pointer-events: none;
+}
+
+.background {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100vh;
+    z-index: -10;
+    font-family: Instrument Serif;
+    font-style: italic; 
+    pointer-events: none;
+    color: #dcdcdc; /* Fixed the color value here */
+}
+
+img {
+    width: 100%;
+}
+
+img:hover {
+    opacity: 0.9;
+}
+
+.scene {
+    width: 100%;
+    height: 100%;
+    perspective: 32000px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stack {
+    position: relative;
+    width: 340px;
+    height: 500px;
+    transform-style: preserve-3d;
+    transform: rotateY(15deg) rotateX(15deg) rotateZ(-5deg);
+    left: -28px;
+}
+
+.folder {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    transform: 
+        translateX(calc(var(--i) * 40px)) 
+        translateY(calc(var(--i) * -25px)) 
+        translateZ(calc(var(--i) * -100px));
+    z-index: calc(100 - var(--i));
+    transition: transform 0.3s ease-out;
+}
+
+.folder.enter {
+    /* Changed to 'ease-out' for continuous fluid movement */
+    animation: slideUpBounce 1s ease-out; 
+    
+    animation-fill-mode: backwards;
+    animation-delay: calc(var(--i) * 0.1s);
+}
+
+.folder.enter .cover {
+    transition: none !important;
+    transform: translateZ(1px) !important; 
+    z-index: 2; 
+}
+
+.folder.enter .content {
+    z-index: 1;
+}
+
+@keyframes slideUpBounce {
+    0% {
+        opacity: 0;
+        top: 100vh;
+    }
+    
+    /* SHOOT UP: Go past the top (negative value) */
+    50% {
+        opacity: 1;
+        top: -50px; 
+    }
+    
+    /* FALL DOWN: Drop slightly below the target */
+    75% {
+        top: 15px; 
+    }
+
+    /* SETTLE: Land at 0 */
+    100% {
+        top: 0;
+    }
+}
+
+/* -------------------------------------------------- */
+
+.folder:not(.open):not(.close):hover {
+    transform: 
+        translateX(calc(var(--i) * 40px + 40px)) 
+        translateY(calc(var(--i) * -25px)) 
+        translateZ(calc(var(--i) * -100px + 30px)); 
+}
+
+@keyframes openAnim {
+    0% { transform: translateX(calc(var(--i) * 40px)) translateY(calc(var(--i) * -25px)) translateZ(calc(var(--i) * -100px)); }
+    40% { transform: translateX(calc(var(--i) * 40px + 50px)) translateY(calc(var(--i) * -25px)) translateZ(400px); }
+    100% { transform: translateX(calc(50% - 170px)) translateY(calc(50% - 90px)) translateZ(600px) rotateZ(5deg) rotateX(-15deg) rotateY(-15deg); }
+}
+
+@keyframes closeAnim {
+    0% { transform: translateX(calc(50% - 170px)) translateY(calc(50% - 90px)) translateZ(600px) rotateZ(5deg) rotateX(-15deg) rotateY(-15deg); }
+    40% { transform: translateX(calc(var(--i) * 40px + 50px)) translateY(calc(var(--i) * -25px)) translateZ(400px); }
+    100% { transform: translateX(calc(var(--i) * 40px)) translateY(calc(var(--i) * -25px)) translateZ(calc(var(--i) * -100px)); }
+}
+
+.folder.open { 
+    animation: openAnim 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards; 
+    z-index: 10000;
+    pointer-events: none; 
+}
+.folder.close { 
+    animation: closeAnim 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards; 
+    z-index: 9999; 
+}
+
+.cover {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: #222;
+    background-image: radial-gradient(#212121,#222); 
+    border-radius: 4px;
+    transform-origin: left center;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 1px 0 0 #111, 5px 5px 20px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+.folder.open .cover { 
+    transform: rotateY(-175deg);
+    pointer-events: none;
+}
+
+.content {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start !important;
+    border: 10px #222 solid;
+    transform: translateZ(-1px);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+    pointer-events: auto;
+    cursor: default;
+}
+
+h3 { 
+    font-family: Instrument Serif;
+    font-style: italic;
+    font-size: 2em; 
+    color: #222;
+    letter-spacing: -0.5px;
+    margin-bottom: 0px;
+}
+
+p { 
+    color: #555; 
+    line-height: 1.2; 
+    font-size: 12px;
+    pointer-events: none;
+    font-family: DM Sans;
+}
+
+.button {
+    color: var(--theme);
+    font-size: 12px; 
+    margin-bottom: 10px;
+    padding-bottom: 5px; 
+    font-weight: bold; 
+    letter-spacing: 1px;
+    transition: background-color 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    z-index: 100000;
+    transform: translateZ(20px);
+    pointer-events: auto;
+    cursor: pointer;
+    border-bottom: 1px solid #666;
+}
+.button:hover {
+    opacity: 0.8;
+}
+
+.nav-controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 0 !important;
+    margin-bottom: 0px; 
+    border: none;
+    padding: 0;
+    position: relative;
+    z-index: 100000;
+    transform: translateZ(20px);
+    pointer-events: auto;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    padding: 0; 
+    cursor: pointer;
+    font-size: 12px;     
+    font-weight: bold;
+    color: #222;
+    letter-spacing: 1px;
+    transition: 0.2s;
+    pointer-events: auto;
+}
+
+.nav-btn:hover {
+    color: var(--theme); 
+    opacity: 1;
+}
+
+.ftab {
+    z-index: 99999;
+    position: absolute; 
+    right: -28px; 
+    height: calc(100% / 9); 
+    top: calc((100% / 9) * var(--i));
+    width: 28px; 
+    color: #fff;
+    border-radius: 0 6px 6px 0; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    writing-mode: vertical-rl;
+    font-weight: 600; 
+    font-size: 12px; 
+    letter-spacing: 1px;
+    background-color: var(--theme);
+    transform: translateZ(2px);
+    pointer-events: auto; 
+    cursor: pointer;
+}
+
+.folder:nth-child(5n+1) { --theme: #e63946; }
+.folder:nth-child(5n+2) { --theme: #f4a261; }
+.folder:nth-child(5n+3) { --theme: #e9c46a; }
+.folder:nth-child(5n+4) { --theme: #2a9d8f; }
+.folder:nth-child(5n+5) { --theme: #264653; }
+
+@keyframes openAnimPhone {
+    0% { transform: translateX(calc(var(--i) * 40px)) translateY(calc(var(--i) * -25px)) translateZ(calc(var(--i) * -100px)); }
+    40% { transform: translateX(calc(var(--i) * 40px + 50px)) translateY(calc(var(--i) * -25px)) translateZ(400px); }
+    100% { transform: translateX(calc(50% - 300px)) translateY(calc(50% - 90px)) translateZ(600px) rotateZ(5deg) rotateX(-15deg) rotateY(-15deg); }
+}
+@keyframes closeAnimPhone {
+    0% { transform: translateX(calc(50% - 300px)) translateY(calc(50% - 90px)) translateZ(600px) rotateZ(5deg) rotateX(-15deg) rotateY(-15deg); }
+    40% { transform: translateX(calc(var(--i) * 40px + 50px)) translateY(calc(var(--i) * -25px)) translateZ(400px); }
+    100% { transform: translateX(calc(var(--i) * 40px)) translateY(calc(var(--i) * -25px)) translateZ(calc(var(--i) * -100px)); }
+}
+
+@media (max-width: 600px) {   
+
+    body {
+        height: 100dvh;
+        width: 100vw;
+    }
+    
+    h3 {
+        font-size: 1.5em;
+    }
+
+    .background {
+        position: fixed;
+        font-size: 100vh;
+        width: 100vw; 
+        z-index: -10;
+        font-family: Instrument Serif;
+        font-style: italic; 
+        pointer-events: none;
+    }
+
+    .stack {
+        translate:-50px;
+        
+        .folder.open .cover { 
+            transform: rotateY(-270deg);
+        }
+        
+        .folder.open { 
+            animation: openAnimPhone 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards; 
+            z-index: 10000;
+            pointer-events: none; 
+        }
+        .folder.close { 
+            animation: closeAnimPhone 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards; 
+            z-index: 9999; 
+        }
+        .folder:not(.open):not(.close):hover {
+            transform: 
+                translateX(calc(var(--i) * 40px)) 
+                translateY(calc(var(--i) * -25px)) 
+                translateZ(calc(var(--i) * -100px));
+        }
+    }
+}
