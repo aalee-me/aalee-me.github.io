@@ -5,8 +5,7 @@ let currenttextColor;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    
-    // Background starts White
+
     bgColor = color(255); 
     currentbgColor = color(255);
 
