@@ -42,6 +42,9 @@ function updateP5Theme(colorHex) {
 }
 
 function toggleFolder(folder) {
+    // Prevent interaction if the entrance animation is still running
+    if (folder.classList.contains('enter')) return;
+
     const isOpen = folder.classList.contains('open');
     
     if (isOpen) return; 
@@ -95,6 +98,16 @@ function nextProject(e, btn) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    // --- ENTRANCE ANIMATION CLEANUP ---
+    // Remove the 'enter' class after 2 seconds (animation + stagger time).
+    // This restores standard behavior and transitions for future clicks.
+    setTimeout(() => {
+        document.querySelectorAll('.folder.enter').forEach(f => {
+            f.classList.remove('enter');
+        });
+    }, 2000);
+    // ----------------------------------
 
     const allTabs = document.querySelectorAll('.ftab');
     allTabs.forEach(tab => {

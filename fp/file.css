@@ -28,7 +28,7 @@ canvas {
     font-family: Instrument Serif;
     font-style: italic; 
     pointer-events: none;
-    color: 240;
+    color: #dcdcdc; /* Fixed the color value here */
 }
 
 img {
@@ -70,6 +70,49 @@ img:hover {
     z-index: calc(100 - var(--i));
     transition: transform 0.3s ease-out;
 }
+
+.folder.enter {
+    /* Changed to 'ease-out' for continuous fluid movement */
+    animation: slideUpBounce 1s ease-out; 
+    
+    animation-fill-mode: backwards;
+    animation-delay: calc(var(--i) * 0.1s);
+}
+
+.folder.enter .cover {
+    transition: none !important;
+    transform: translateZ(1px) !important; 
+    z-index: 2; 
+}
+
+.folder.enter .content {
+    z-index: 1;
+}
+
+@keyframes slideUpBounce {
+    0% {
+        opacity: 0;
+        top: 100vh;
+    }
+    
+    /* SHOOT UP: Go past the top (negative value) */
+    50% {
+        opacity: 1;
+        top: -50px; 
+    }
+    
+    /* FALL DOWN: Drop slightly below the target */
+    75% {
+        top: 15px; 
+    }
+
+    /* SETTLE: Land at 0 */
+    100% {
+        top: 0;
+    }
+}
+
+/* -------------------------------------------------- */
 
 .folder:not(.open):not(.close):hover {
     transform: 
@@ -232,12 +275,12 @@ p {
 .folder:nth-child(5n+4) { --theme: #2a9d8f; }
 .folder:nth-child(5n+5) { --theme: #264653; }
 
-    @keyframes openAnimPhone {
+@keyframes openAnimPhone {
     0% { transform: translateX(calc(var(--i) * 40px)) translateY(calc(var(--i) * -25px)) translateZ(calc(var(--i) * -100px)); }
     40% { transform: translateX(calc(var(--i) * 40px + 50px)) translateY(calc(var(--i) * -25px)) translateZ(400px); }
     100% { transform: translateX(calc(50% - 300px)) translateY(calc(50% - 90px)) translateZ(600px) rotateZ(5deg) rotateX(-15deg) rotateY(-15deg); }
 }
-    @keyframes closeAnimPhone {
+@keyframes closeAnimPhone {
     0% { transform: translateX(calc(50% - 300px)) translateY(calc(50% - 90px)) translateZ(600px) rotateZ(5deg) rotateX(-15deg) rotateY(-15deg); }
     40% { transform: translateX(calc(var(--i) * 40px + 50px)) translateY(calc(var(--i) * -25px)) translateZ(400px); }
     100% { transform: translateX(calc(var(--i) * 40px)) translateY(calc(var(--i) * -25px)) translateZ(calc(var(--i) * -100px)); }
@@ -245,49 +288,46 @@ p {
 
 @media (max-width: 600px) {   
 
-body {
+    body {
         height: 100dvh;
         width: 100vw;
     }
     
-h3 {
-    font-size: 1.5em;
-}
+    h3 {
+        font-size: 1.5em;
+    }
 
-.background {
-    position: fixed;
-    font-size: 100vh;
-    width: 100vw; 
-    z-index: -10;
-    font-family: Instrument Serif;
-    font-style: italic; 
-    pointer-events: none;
-}
+    .background {
+        position: fixed;
+        font-size: 100vh;
+        width: 100vw; 
+        z-index: -10;
+        font-family: Instrument Serif;
+        font-style: italic; 
+        pointer-events: none;
+    }
 
     .stack {
-    translate:-50px;
-    .folder.open .cover { 
-    transform: rotateY(-270deg);
+        translate:-50px;
+        
+        .folder.open .cover { 
+            transform: rotateY(-270deg);
         }
-    
-    .folder.open { 
-    animation: openAnimPhone 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards; 
-    z-index: 10000;
-    pointer-events: none; 
-}
-.folder.close { 
-    animation: closeAnimPhone 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards; 
-    z-index: 9999; 
-
-
+        
+        .folder.open { 
+            animation: openAnimPhone 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards; 
+            z-index: 10000;
+            pointer-events: none; 
+        }
+        .folder.close { 
+            animation: closeAnimPhone 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards; 
+            z-index: 9999; 
+        }
+        .folder:not(.open):not(.close):hover {
+            transform: 
+                translateX(calc(var(--i) * 40px)) 
+                translateY(calc(var(--i) * -25px)) 
+                translateZ(calc(var(--i) * -100px));
+        }
     }
-    .folder:not(.open):not(.close):hover {
-        transform: 
-            translateX(calc(var(--i) * 40px)) 
-            translateY(calc(var(--i) * -25px)) 
-            translateZ(calc(var(--i) * -100px));
-    }
-
-}
-
 }
